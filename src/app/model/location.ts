@@ -1,4 +1,4 @@
 export interface Location {
-    ArticleLocation: string;
-    PhysicalStock: string;
+    LocationCode: string;
+    LocationCapacity: string;
 }

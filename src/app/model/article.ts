@@ -1,7 +1,7 @@
 export interface Article {
     Site: string;
-    ArticleNumber: string;
-    ArticleDescription: string;
+    ItemCode: string;
+    ItemDescription: string;
     ArticleCategory: string;
     ArticleCategoryDescription: string;
     RangeCategory: string;
@@ -15,4 +15,20 @@ export interface Article {
     SiteSpecificArticleStatusDescription: string;
     PackSize: string;
     CurrentPrice: string;
+    Barcode: string;
+    AvailableStock: string;
+    ShopFloorStock: string;
+    DisplayStock: string;
+    CustomerStock: string;
+    StockInOvers: string;
+    BlockedStock: string;
+    StockOnOrder: string;
+    StockInTransit: string;
+    StockInTransfer: string;
+    OrderedStock: string;
+    RequestedStock: string;
+    StockLastReceivedOn: string;
+    SiteStatusCode: string;
+    SiteStatusName: string;
+    OnPromotion: string;
 }

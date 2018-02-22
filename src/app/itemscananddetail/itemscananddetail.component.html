@@ -12,7 +12,7 @@
       </div>
     </form>
     <div *ngIf="isShowingDetails">
-      <app-itemdetails></app-itemdetails>
+      <app-itemdetails [article]="article" [locations]="locations"></app-itemdetails>
     </div>
   </div>
 </section>
