@@ -1,4 +1,3 @@
-import { ModalAdvComponent } from './components/modal-adv/modal-adv';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -14,7 +13,6 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
         FormsModule,
         ReactiveFormsModule,
         HeaderComponent,
-        ModalAdvComponent,
         SpinnerComponent
     ],
     imports: [
@@ -28,7 +26,6 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
 
     declarations: [
         HeaderComponent,
-        ModalAdvComponent,
         SpinnerComponent
     ],
 

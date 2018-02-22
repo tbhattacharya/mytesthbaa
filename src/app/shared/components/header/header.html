@@ -11,7 +11,7 @@
             <div class="col-sm-12">
                 <input type="text" placeholder="e.g. 127 or 076" class="store-finder-input" [(ngModel)]="storeId" >
                 <input type="button" id="cmdUpdateStore" class="button button--secondary" size="8" value="Submit" (click)="updateStoreID()"
-                    [disabled]="isCaptchaOk">
+                    [disabled]="isCaptchaOk" pattern="^\d{3}$">
             </div>
         </div>
     </div>
