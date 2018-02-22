@@ -7,18 +7,21 @@ import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 })
 
 export class HeaderComponent implements OnInit {
-    public storeId: string = '';
+    public storeId: string = 'Select your store';
     private STORE: string = 'STORE';
     public isCollapsed = true;
 
     constructor(private sStorage: SessionStorageService) {
     }
     ngOnInit(): void {
-        this.getFromSessionStorage();
+        if (this.getFromSessionStorage()) {
+            this.storeId = 'Store ' + this.getFromSessionStorage();
+        }
     }
 
     public updateStoreID(): void {
         this.saveToSessionStorage();
+        this.storeId = 'Store ' + this.getFromSessionStorage();
         this.isCollapsed = !this.isCollapsed;
     }
 
