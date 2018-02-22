@@ -1,5 +1,6 @@
 import { SessionStorageService } from 'ng2-webstorage';
 import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-header',
@@ -7,30 +8,40 @@ import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 })
 
 export class HeaderComponent implements OnInit {
-    public storeId: string = 'Select your store';
-    private STORE: string = 'STORE';
+    public storeMessage: string = 'Select your store';
+    public storeId: string = '';
+    public STORE: string = 'STORE';
     public isCollapsed = true;
+    public uiForm: FormGroup;
 
-    constructor(private sStorage: SessionStorageService) {
+    constructor(private sStorage: SessionStorageService, private formBuilder: FormBuilder) {
     }
     ngOnInit(): void {
+        this.uiForm = this.formBuilder.group({
+            storenumber: ['', [Validators.pattern('\d{3}')]]
+        });
         if (this.getFromSessionStorage()) {
-            this.storeId = 'Store ' + this.getFromSessionStorage();
+            this.storeMessage = 'Store ' + this.getFromSessionStorage();
         }
     }
 
     public updateStoreID(): void {
-        this.saveToSessionStorage();
-        this.storeId = 'Store ' + this.getFromSessionStorage();
-        this.isCollapsed = !this.isCollapsed;
+        if (this.uiForm.valid) {
+            this.saveToSessionStorage();
+            this.storeMessage = 'Store ' + this.getFromSessionStorage();
+            this.isCollapsed = !this.isCollapsed;
+        } else {
+            alert('Error');
+        }
     }
 
     public saveToSessionStorage(): void {
         this.sStorage.store(this.STORE, this.storeId);
     }
 
-    public getFromSessionStorage(): void {
+    public getFromSessionStorage(): string {
         this.storeId = this.sStorage.retrieve(this.STORE);
+        return this.storeId;
     }
 
     public collapsed(event: any): void {

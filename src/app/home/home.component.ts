@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  private isCaptchaOk: boolean = false;
+  public isCaptchaOk: boolean = false;
 
   constructor(private service: HttpService, private router: Router) { }
 
