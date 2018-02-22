@@ -1,5 +1,5 @@
 {
-  "name": "homebase",
+  "name": "home-base-app",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -21,12 +21,17 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
+    "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
+    "ng-recaptcha": "^3.0.3",
+    "ng2-bootstrap": "^1.6.3",
+    "ng2-webstorage": "^2.0.0",
+    "ngx-bootstrap": "^2.0.2",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
-    "@angular/cli": "~1.7.0",
+    "@angular/cli": "1.6.7",
     "@angular/compiler-cli": "^5.2.0",
     "@angular/language-service": "^5.2.0",
     "@types/jasmine": "~2.8.3",

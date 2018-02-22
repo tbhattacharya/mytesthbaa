@@ -1,1 +1,342 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Homebase12-Bold';
+    src: url('/assets/fonts/homebase12-bold-eot-data.eot');
+    src: url('/assets/fonts/homebase12-bold-eot-data.eot?#iefix') format('embedded-opentype'),url('/assets/fonts/homebase12-bold-woff-data.woff') format('woff'),url('/assets/fonts/homebase12-bold-ttf-data.ttf') format('truetype'),url('https://www.homebase.co.uk//assets/styleguide/v1.0.867.0-release/bunnings-main-site//assets/webfonts/homebase/homebase12-bold-svg-data.svg#Homebase12-Bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+@font-face {
+    font-family: 'homebaseicons';
+    src: url('/assets/fonts/homebase-icons.eot?20650232');
+    src: url('/assets/fonts/homebase-icons.eot?20650232#iefix') format('embedded-opentype'),url('/assets/fonts/homebase-icons.woff?20650232') format('woff'),url('/assets/fonts/homebase-icons.ttf?20650232') format('truetype'),url('/assets/fonts/homebase-icons.svg?20650232#homebase-icons') format('svg');
+    font-weight: normal;
+    font-style: normal
+}
+
+
+/* Global */
+input[type="text"] {
+    border: 1px solid #d6d6d6;
+    padding: 4px;
+    font-size: 15px;
+    font-size: 1.5rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 96%;
+}
+
+input[type="button"] {
+    margin-bottom: 0;
+    font-family: Arial,sans-serif;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 2px solid transparent;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.1);
+    white-space: nowrap;
+    height: auto;
+    padding: 10px 20px;
+    line-height: 1;
+    border-radius: 3px;
+}
+
+.button.button--secondary {
+    background: #41ba5a;
+    color: #fff;
+}
+
+.button.button--secondary.button-agree{
+    text-align: center;
+    margin-top: 20px;
+}
+
+h3 {
+    font-size: 26px;
+    font-size: 2.6rem;
+    margin-bottom: .8em;
+    line-height: 1.3em;
+}
+
+/* Global Style Ends */
+
+body {
+    height: 100%;
+    background-color: #E4E4E4!important;
+}
+
+header {
+    background-color: #FFF;
+}
+
+section {
+    padding-top: 15px;
+}
+
+header .row {
+    width: 100%;
+    font-size: 20px;
+    font-size: 2rem;
+    line-height: 22px;
+    line-height: 2.2rem;
+    background: #ffffff;
+    color: #379E49;
+    padding: 11px 0;
+}
+
+header .row .store-icon:before {
+    line-height: 20px;
+    line-height: 2rem;
+    display: inline-block;
+}
+
+header .row .store-icon:before {
+    font-family: 'homebaseicons';
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: '\e824';
+}
+
+header .row .dropdown {
+    font-family: Arial,sans-serif;
+    color: #379E49;
+    padding-right: 18px;
+    float: left;
+    padding-left: 15px;
+}
+
+header .row .dropdown:after {
+    font-family: 'homebaseicons';
+    font-style: normal;
+    font-weight: normal;
+    display: inline-block;
+    text-decoration: inherit;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: '\e80b';
+    padding-left: 30px;
+    line-height: 20px;
+    line-height: 2rem;
+}
+
+header .dropdown-container {
+    position: absolute;
+    top: 45px;
+    border-bottom: 1px solid #ccc;
+    display: none;
+    z-index: 999;
+}
+
+header .dropdown-container .store-finder-label {
+    font-size: 16px;
+    font-size: 1.6rem;
+    line-height: 18px;
+    line-height: 1.8rem;
+    font-weight: bold;
+    color: #444444;
+}
+
+header .dropdown-container .store-finder-input {
+    font-size: 14px;
+    font-size: 1.4rem;
+    line-height: 15px;
+    line-height: 1.5rem;
+    width: 206px;
+    height: 43px;
+    padding: 0 0 0 10px;
+    outline: none;
+    color: #444444;
+}
+
+header h2.header-text {
+    font-family: 'Homebase12-Bold',Helvetica,Arial,sans-serif;
+    letter-spacing: -0.02em;
+    background: #41BA5A;
+    color: #ffffff;
+    text-shadow: none;
+    font-size: 40px;
+    font-size: 3rem;
+    padding: 10px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+section.main-content .item-search-container {
+    font-size: 18px;
+    font-size: 1.8rem;
+    line-height: 20px;
+    line-height: 2rem;
+    padding-right: 0;
+}
+
+section.main-content .item-search-button-container {
+    padding-left: 0;
+}
+
+section.main-content input {
+    width: 100%;
+    height: 43px;
+    padding: 0 0 0 30px;
+    outline: none;
+    color: #444444;
+    border: 2px solid #444;
+    border-right: none;
+}
+
+section.main-content .icon-search {
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    color: #888888;
+}
+
+section.main-content .icon-search:after {
+    font-family: 'homebaseicons';
+    font-style: normal;
+    font-weight: normal;
+    display: inline-block;
+    text-decoration: inherit;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 20px;
+    line-height: 2rem;
+    content: '\e822';
+    margin-top: 7px;
+    margin-left: 3px
+}
+
+section.main-content .button-icon {
+    background-color: #FFF;
+    height: 43px;
+    font-size: 18px;
+    color: #888;
+    width: 100%;
+    border: 2px solid #444;
+    border-left: none;
+}
+
+section.main-content .button-icon:after {
+    font-family: 'homebaseicons';
+    font-style: normal;
+    font-weight: normal;
+    display: inline-block;
+    text-decoration: inherit;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 20px;
+    line-height: 2rem;
+    content: '\e819';
+}
+
+section.main-content .item-details h3 {
+    text-align: center;
+}
+
+section.main-content .item-details-breakup{
+    margin-top: 30px;
+    font-family: 'Homebase12-Regular',Helvetica,Arial,sans-serif;
+    letter-spacing: -0.02em;
+    font-size: 14px;
+    font-size: 1.4rem;
+}
+
+section.main-content .item-details-breakup h4{
+    margin-top: 5px;
+}
+
+section.main-content .item-details-breakup .data-container-left{
+    margin-left: 15px;
+    padding: 5px 5px 15px;
+    background-color: #FFF;
+    width: 45%;
+}
+
+section.main-content .item-details-breakup .data-container-right{
+    margin-right: 15px;
+    padding: 5px 5px 15px;
+    background-color: #FFF;
+    width: 45%;
+}
+
+section.main-content .item-details-breakup .data-row-odd{ 
+    background-color: #E4E4E4;
+}
+
+section.main-content .item-details-breakup .column1{ 
+    border-right: 1px solid #9d9d9d;
+    font-family: 'Homebase12-Bold',Helvetica,Arial,sans-serif;
+    letter-spacing: -0.02em;
+    padding-right: 0;
+}
+
+section.main-content .item-details-breakup .item-availability {
+    font-family: 'homebaseicons';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    font-size: 2rem;
+    display: inline-block;
+    text-decoration: inherit;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 20px;
+    line-height: 2rem;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+section.main-content .item-details-breakup .available {
+    color: #41BA5A;
+}
+
+section.main-content .item-details-breakup .available .item-availability {
+    background-color: #41BA5A;
+}
+
+section.main-content .item-details-breakup .available .item-availability:after {
+    content: '\e805';
+    color: #FFF;
+    width: 24px;
+    height: 24px;
+}
+
+section.main-content .item-details-breakup .low {
+    color: #F7941D;
+}
+
+section.main-content .item-details-breakup .low .item-availability {
+    background-color: #F7941D;
+}
+
+section.main-content .item-details-breakup .low .item-availability:after {
+    content: '\e829';
+    color: #FFF;
+    width: 24px;
+    height: 24px;
+}
