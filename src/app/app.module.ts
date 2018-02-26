@@ -31,7 +31,7 @@ import { ItemDetailsComponent } from './itemscananddetail/itemdetails.component'
     RouterModule.forRoot([
       { path: 'application/home', component: HomeComponent},
       { path: 'application/items', component: ItemscananddetailComponent},
-      { path: '**', redirectTo: 'application/home', pathMatch: 'full' }
+      { path: '**', redirectTo: 'application/items', pathMatch: 'full' }
 
   ], { useHash: true /*preloadingStrategy: CustomPreloadingStrategy*/ })
   ],

@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
     }
     ngOnInit(): void {
         this.uiForm = this.formBuilder.group({
-            storenumber: ['', [Validators.pattern('\d{3}')]]
+            storenumber: ['', [Validators.pattern('^[0-9]{3}$'), Validators.required]]
         });
         if (this.getFromSessionStorage()) {
             this.storeMessage = 'Store ' + this.getFromSessionStorage();
@@ -28,15 +28,14 @@ export class HeaderComponent implements OnInit {
     public updateStoreID(): void {
         if (this.uiForm.valid) {
             this.saveToSessionStorage();
-            this.storeMessage = 'Store ' + this.getFromSessionStorage();
+            this.storeMessage = 'Store ' + this.uiForm.controls['storenumber'].value;
             this.isCollapsed = !this.isCollapsed;
-        } else {
-            alert('Error');
         }
     }
 
     public saveToSessionStorage(): void {
-        this.sStorage.store(this.STORE, this.storeId);
+        this.sStorage.store(this.STORE, this.uiForm.controls['storenumber'].value);
+        this.storeId = this.uiForm.controls['storenumber'].value;
     }
 
     public getFromSessionStorage(): string {

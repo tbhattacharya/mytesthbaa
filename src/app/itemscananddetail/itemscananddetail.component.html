@@ -4,15 +4,20 @@
       <div class="row item-search-barcode">
         <div class="col-sm-10 col-xs-10 item-search-container">
           <i class="icon-search"></i>
-          <input type="text" placeholder="Search for item" class="item-finder-input" formControlName="itemnumber">
+          <input type="text" placeholder="Search for item" class="item-finder-input" formControlName="itemnumber" maxlength="6">
         </div>
         <div class="col-sm-2 col-xs-2 item-search-button-container">
           <button class="button-icon"></button>
         </div>
       </div>
+      <div class="clearfix"></div>
+      <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span>Invalid item number (must be 4-6 digit long)</div>
     </form>
     <div *ngIf="isShowingDetails">
       <app-itemdetails [article]="article" [locations]="locations"></app-itemdetails>
     </div>
+    <app-modal #captcha>
+      <app-home (accept)="onAccept()"></app-home>
+    </app-modal>
   </div>
 </section>

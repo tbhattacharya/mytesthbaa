@@ -8,10 +8,17 @@
             <div class="col-sm-12">
                 <label class="store-finder-label">Enter the store number:</label>
             </div>
-            <div class="col-sm-12">
+            <div class="col-sm-12 col-xs-12">
                 <form novalidate [formGroup]="uiForm">
-                    <input type="text" placeholder="e.g. 127 or 076" class="store-finder-input" formControlName="storenumber">
-                    <input type="button" id="cmdUpdateStore" class="button button--secondary" size="8" value="Submit" (click)="updateStoreID()">
+                    <div class="col-sm-8 col-xs-8 no-padding">
+                        <input type="number" placeholder="e.g. 127 or 076" class="store-finder-input" formControlName="storenumber" max="699">
+                    </div>
+                    <div class="col-sm-4 col-xs-4 no-padding pl-5">
+                        <input type="button" id="cmdUpdateStore" class="button button--secondary" size="8" value="Submit" 
+                        [disabled]="uiForm.invalid" (click)="updateStoreID()">
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span>Invalid store number (must be between 001-699)</div>
                 </form>
             </div>
         </div>

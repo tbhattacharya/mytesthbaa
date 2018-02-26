@@ -1,5 +1,5 @@
 import { HttpService } from './../shared/services/http-service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   public isCaptchaOk: boolean = false;
+  @Output() accept = new EventEmitter<any>();
 
   constructor(private service: HttpService, private router: Router) { }
 
@@ -25,8 +26,7 @@ export class HomeComponent implements OnInit {
   }
 
   public clickUpdate(): void {
-    console.log('Clicked');
-    this.router.navigate(['application/items'], {});
+    this.accept.emit()
   }
 
 }

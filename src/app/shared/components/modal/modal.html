@@ -1,0 +1,28 @@
+<div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"
+    [config]="config" (onHidden)="onHidden($event)">
+    <div class="modal-dialog modal-{{size}} modal-dialog-centered">
+        <div class="modal-content">
+            <div tabindex="0" (focus)="gotolast()"></div>
+            <div class="modal-header" [hidden]="!showHeader" [attr.data-hidden]="!showHeader">
+                <button type="button" [hidden]="!showCloseButton" [attr.data-hidden]="!showCloseButton" class="close" aria-label="Close"
+                    (click)="hide()">&nbsp;
+                    <!--<span >&times;</span>-->
+                </button>
+                <h4 class="modal-title">{{title}}</h4>
+            </div>
+            <div class="modal-body" [ngClass]="{ 'pt0': showHeader }">
+<!--                 <div *ngIf="!isArrayType">{{content }}</div>
+                <div *ngIf="isArrayType">
+                    <div *ngFor="let msg of content">{{msg }} </div>
+                </div>
+                <div *ngIf="isFullError === true" class="pt20">
+                    <div *ngIf="!isFullErrorArrayType">{{fullErrorContent }}</div>
+                    <div *ngIf="isFullErrorArrayType">
+                        <div *ngFor="let msg of fullErrorContent">{{msg }} </div>
+                    </div>
+                </div> -->
+                <ng-content></ng-content>
+            </div>
+        </div>
+    </div>
+</div>

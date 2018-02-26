@@ -1,3 +1,4 @@
+import { ModalComponent } from './components/modal/modal';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -6,6 +7,7 @@ import { HeaderComponent } from './components/header/header';
 import { SpinnerComponent } from './components/spinner/spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { ModalModule, ModalDirective } from 'ng2-bootstrap/ng2-bootstrap';
 
 @NgModule({
     exports: [
@@ -13,7 +15,8 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
         FormsModule,
         ReactiveFormsModule,
         HeaderComponent,
-        SpinnerComponent
+        SpinnerComponent,
+        ModalComponent
     ],
     imports: [
         CommonModule,
@@ -21,15 +24,18 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
         ReactiveFormsModule,
         HttpClientModule,
         CollapseModule.forRoot(),
-        RouterModule
+        RouterModule,
+        ModalModule.forRoot()
     ],
 
     declarations: [
         HeaderComponent,
-        SpinnerComponent
+        SpinnerComponent,
+        ModalComponent
     ],
 
     entryComponents: [
+        ModalComponent
     ]
 })
 
