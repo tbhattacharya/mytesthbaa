@@ -7,7 +7,7 @@ import { HeaderComponent } from './components/header/header';
 import { SpinnerComponent } from './components/spinner/spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
-import { ModalModule, ModalDirective } from 'ng2-bootstrap/ng2-bootstrap';
+import { ModalModule, ModalDirective } from 'ngx-bootstrap';
 
 @NgModule({
     exports: [

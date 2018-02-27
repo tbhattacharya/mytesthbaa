@@ -2,7 +2,6 @@
     [config]="config" (onHidden)="onHidden($event)">
     <div class="modal-dialog modal-{{size}} modal-dialog-centered">
         <div class="modal-content">
-            <div tabindex="0" (focus)="gotolast()"></div>
             <div class="modal-header" [hidden]="!showHeader" [attr.data-hidden]="!showHeader">
                 <button type="button" [hidden]="!showCloseButton" [attr.data-hidden]="!showCloseButton" class="close" aria-label="Close"
                     (click)="hide()">&nbsp;
