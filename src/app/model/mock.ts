@@ -39,8 +39,8 @@ export const MOCK = `{
 				"LocationCapacity": "3"
 			},
 			{
-				"ArticleLocation": "7311-0000-000",
-				"PhysicalStock": "6"
+				"LocationCode": "7311-0000-000",
+				"LocationCapacity": "6"
 			}
 		]
 	}

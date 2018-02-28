@@ -1,10 +1,10 @@
 <section class="main-content container-fluid">
   <div>
-    <form novalidate [formGroup]="uiForm" (submit)="submit()">
+    <form novalidate [formGroup]="uiForm">
       <div class="row item-search-barcode">
         <div class="col-sm-10 col-xs-10 item-search-container">
           <i class="icon-search"></i>
-          <input #itemNumber type="text" placeholder="Search for item" class="item-finder-input" formControlName="itemnumber" maxlength="6">
+          <input #itemNumber type="text" placeholder="Search for item" class="item-finder-input" formControlName="itemnumber" maxlength="6" (change)="submit()">
         </div>
         <div class="col-sm-2 col-xs-2 item-search-button-container">
           <button class="button-icon"></button>

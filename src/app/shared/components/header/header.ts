@@ -1,5 +1,5 @@
 import { SessionStorageService } from 'ng2-webstorage';
-import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
     public STORE: string = 'STORE';
     public isCollapsed = true;
     public uiForm: FormGroup;
+    @ViewChild('storeNumber')storeNumber: ElementRef;
 
     constructor(private sStorage: SessionStorageService, private formBuilder: FormBuilder) {
     }
@@ -27,6 +28,7 @@ export class HeaderComponent implements OnInit {
 
     public updateStoreID(): void {
         if (this.uiForm.valid) {
+            this.storeNumber.nativeElement.blur();
             this.saveToSessionStorage();
             this.storeMessage = 'Store ' + this.uiForm.controls['storenumber'].value;
             this.isCollapsed = !this.isCollapsed;

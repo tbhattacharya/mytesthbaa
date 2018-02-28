@@ -43,23 +43,12 @@
             Locations:
         </h6>
         <div>
-            <div class="col-sm-12 col-xs-12 data-row"><a href="#">Shop floor<span class="glyphicon glyphicon-info-sign pull-right"></span></a></div>
-            <div class="col-sm-12 col-xs-12 data-row"><a href="#">Shop floor<span class="glyphicon glyphicon-info-sign pull-right"></span></a></div>
-            <div class="col-sm-12 col-xs-12 data-row"><a href="#">Shop floor<span class="glyphicon glyphicon-info-sign pull-right"></span></a></div>
-            <div class="col-sm-12 col-xs-12 data-row"><a href="#">Shop floor<span class="glyphicon glyphicon-info-sign pull-right"></span></a></div>
-            <div class="col-sm-12 col-xs-12 data-row"><a href="#">Shop floor<span class="glyphicon glyphicon-info-sign pull-right"></span></a></div>
-            <div class="col-sm-12 col-xs-12 data-row"><a href="#">Shop floor<span class="glyphicon glyphicon-info-sign pull-right"></span></a></div>
-            <div class="col-sm-12 col-xs-12 data-row"><a href="#">Shop floor<span class="glyphicon glyphicon-info-sign pull-right"></span></a></div>
-            <div class="col-sm-12 col-xs-12 data-row"><a href="#">Shop floor<span class="glyphicon glyphicon-info-sign pull-right"></span></a></div>
-            <div class="col-sm-12 col-xs-12 data-row"><a href="#">Shop floor<span class="glyphicon glyphicon-info-sign pull-right"></span></a></div>
-            <div class="col-sm-12 col-xs-12 data-row"><a href="#">Shop floor<span class="glyphicon glyphicon-info-sign pull-right"></span></a></div>
-            <div class="col-sm-12 col-xs-12 data-row"><a href="#">Shop floor<span class="glyphicon glyphicon-info-sign pull-right"></span></a></div>
-            <div class="col-sm-12 col-xs-12 data-row"><a href="#">Shop floor<span class="glyphicon glyphicon-info-sign pull-right"></span></a></div>
-            <div class="col-sm-12 col-xs-12 data-row"><a href="#">Shop floor<span class="glyphicon glyphicon-info-sign pull-right"></span></a></div>
-            <div class="col-sm-12 col-xs-12 data-row"><a href="#">Shop floor<span class="glyphicon glyphicon-info-sign pull-right"></span></a></div>
-            <div class="col-sm-12 col-xs-12 data-row"><a href="#">Shop floor<span class="glyphicon glyphicon-info-sign pull-right"></span></a></div>
-            <div class="col-sm-12 col-xs-12 data-row"><a href="#">Shop floor<span class="glyphicon glyphicon-info-sign pull-right"></span></a></div>
-        </div>        
+            <div class="col-sm-12 col-xs-12 data-row" *ngFor="let location of locations">
+                <a href="#">{{ location.LocationCode }}
+                    <span class="glyphicon glyphicon-info-sign pull-right"></span>
+                </a>
+            </div>
+        </div>
     </div>
     <div class="data-container-right pb-5 pull-right">
         <h6>
@@ -68,5 +57,5 @@
         <div class="col-sm-12 col-xs-12 data-row-even availability">Available</div>
         <div class="col-sm-12 col-xs-12 data-row-even price-perunit">£16.75</div>
     </div>
-    
+
 </div>
