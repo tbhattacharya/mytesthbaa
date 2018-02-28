@@ -3,7 +3,7 @@ import { GeneralEnquiries } from './../model/enquiry';
 import { Location } from './../model/location';
 import { HttpService } from './../shared/services/http-service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Component, OnInit, HostListener, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit, HostListener, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { SessionStorageService } from 'ng2-webstorage';
 import { Article } from '../model/article';
 
@@ -14,6 +14,7 @@ import { Article } from '../model/article';
 export class ItemscananddetailComponent implements OnInit, AfterViewInit {
 
   @ViewChild('captcha') captcha: ModalComponent;
+  @ViewChild('itemNumber') itemNumber: ElementRef;
   public isShowingDetails: boolean = false;
   public uiForm: FormGroup;
   public article: Article;
@@ -62,6 +63,7 @@ export class ItemscananddetailComponent implements OnInit, AfterViewInit {
         error => {
           console.log('Err ', error);
         });*/
+      this.itemNumber.nativeElement.blur();
       let data = this.httpService.fetchDataForItem(this.uiForm.controls['itemnumber'].value, this.getFromSessionStorage());
       this.article = data.Article;
       this.locations = data.Locations;
