@@ -474,3 +474,34 @@ section.main-content .item-details-breakup .col-sm-6.col-xs-6 {
     text-decoration: none;
     color: #333;
 }
+
+
+.data-container-location {
+    font-family: 'Homebase12-Regular', Helvetica, Arial, sans-serif;
+    letter-spacing: -0.02em;
+    font-size: 14px;
+    font-size: 1.4rem;
+    margin-left: 7px;
+    padding: 5px 5px 15px;
+    background-color: #FFF;
+    width: 100%;
+}
+
+.data-row-location-odd {
+    background-color: #E4E4E4;
+}
+
+.data-row-location-even {
+    background-color: #FFFFFF;
+}
+
+.data-row-location-even.column1,
+.data-row-location-odd.column1 {
+    border-right: 1px solid #9d9d9d;
+    font-family: 'Homebase12-Bold', Helvetica, Arial, sans-serif;
+    letter-spacing: -0.02em;
+    padding-right: 0;
+}
+.location-close{
+    margin-top: 10px!important;
+}

@@ -13,10 +13,11 @@ export class HeaderComponent implements OnInit {
     public STORE: string = 'STORE';
     public isCollapsed = true;
     public uiForm: FormGroup;
-    @ViewChild('storeNumber')storeNumber: ElementRef;
+    @ViewChild('storeNumber') storeNumber: ElementRef;
 
     constructor(private sStorage: SessionStorageService, private formBuilder: FormBuilder) {
     }
+
     ngOnInit(): void {
         this.uiForm = this.formBuilder.group({
             storenumber: ['', [Validators.pattern('^[0-9]{3}$'), Validators.required]]

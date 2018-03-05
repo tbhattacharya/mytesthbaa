@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { SessionStorageService } from 'ng2-webstorage';
 import { ItemscananddetailComponent } from './itemscananddetail/itemscananddetail.component';
 import { ItemDetailsComponent } from './itemscananddetail/itemdetails.component';
+import { LocationComponent } from './location/location.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ItemDetailsComponent } from './itemscananddetail/itemdetails.component'
     AppComponent,
     HomeComponent,
     ItemDetailsComponent,
-    ItemscananddetailComponent
+    ItemscananddetailComponent,
+    LocationComponent
   ],
   imports: [
     BrowserModule,

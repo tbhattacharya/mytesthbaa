@@ -1,0 +1,18 @@
+<section class="container-fluid">
+  <div class="data-container-location">
+    <h4 class="available">
+      <span class="item-availability"></span> Location: {{locStringDisplay}}
+    </h4>
+    <div class="col-sm-6 col-xs-6 data-row-location-odd column1">Layout Area</div>
+    <div class="col-sm-6 col-xs-6 data-row-location-odd">{{ layoutArea }}</div>
+    <div class="col-sm-6 col-xs-6 data-row-location-even column1">Meter</div>
+    <div class="col-sm-6 col-xs-6 data-row-location-even">{{ meter }}</div>
+    <div class="col-sm-6 col-xs-6 data-row-location-odd column1">Shelf</div>
+    <div class="col-sm-6 col-xs-6 data-row-location-odd">{{ shelf }}</div>
+    <div class="col-sm-6 col-xs-6 data-row-location-even column1">Sequence</div>
+    <div class="col-sm-6 col-xs-6 data-row-location-even">{{ sequence }}</div>
+  </div>
+  <div class="location-close text-center">
+    <input type="button" id="cmdClose" class="button button--secondary button-agree" size="8" value="Close" (click)="close()">
+  </div>
+</section>
