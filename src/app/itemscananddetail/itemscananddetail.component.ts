@@ -4,7 +4,7 @@ import { Location } from './../model/location';
 import { HttpService } from './../shared/services/http-service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit, HostListener, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { SessionStorageService } from 'ng2-webstorage';
+import { SessionStorageService } from 'ngx-webstorage';
 import { Article } from '../model/article';
 
 @Component({

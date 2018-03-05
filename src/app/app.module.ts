@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { RouterModule } from '@angular/router';
-import { SessionStorageService } from 'ng2-webstorage';
+import { SessionStorageService } from 'ngx-webstorage';
 import { ItemscananddetailComponent } from './itemscananddetail/itemscananddetail.component';
 import { ItemDetailsComponent } from './itemscananddetail/itemdetails.component';
 import { LocationComponent } from './location/location.component';
