@@ -1,6 +1,8 @@
 import { HttpService } from './../shared/services/http-service';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { UserValidationError } from '../shared/error/ErrorType';
 
 @Component({
   selector: 'app-home',
@@ -9,24 +11,52 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  public isCaptchaOk: boolean = false;
-  @Output() accept = new EventEmitter<any>();
+  @Output() verified = new EventEmitter<any>();
+  public uiForm: FormGroup;
+  public error: boolean = false;
+  public errorMessage: String = '';
+  public isUserIDEntered: boolean = false;
 
-  constructor(private service: HttpService, private router: Router) { }
+  constructor(private service: HttpService, private router: Router,
+    private formBuilder: FormBuilder, private httpService: HttpService) { }
 
   ngOnInit() {
-  }
-  public resolved(captchaResponse: string) {
-    console.log(`Resolved captcha with response ${captchaResponse}:`);
-    this.isCaptchaOk = true;
-    this.service.checkCaptcha(captchaResponse).subscribe((data) => {
-      console.log(' Auth ', data);
-      this.isCaptchaOk = true;
+    this.uiForm = this.formBuilder.group({
+      employeeId: [{ value: '', disabled: false }]
     });
+  }
+  public activateButton(): void {
+    if (this.uiForm.controls['employeeId'].value) {
+      this.isUserIDEntered = true;
+    } else {
+      this.isUserIDEntered = false;
+    }
   }
 
   public clickUpdate(): void {
-    this.accept.emit()
+    this.httpService.checkEmployeeId(this.uiForm.controls['employeeId'].value).subscribe(
+      data => {
+        if (data && data.allowed === true){
+          this.verified.emit();
+        } else {
+          this.handleError(UserValidationError.INVALID_USER);
+        }
+      },
+      error => {
+        this.handleError(UserValidationError.GENERIC);
+      }
+    );
+  }
+
+  public handleError(error: UserValidationError): void {
+    switch (error) {
+      case UserValidationError.INVALID_USER:
+        this.errorMessage = 'Invalid Employee ID';
+        break;
+      default:
+        this.errorMessage = 'General Error. Please try again later';
+    }
+    setTimeout(()=>{this.error = true;}, 0);
   }
 
 }

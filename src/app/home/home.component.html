@@ -3,12 +3,21 @@
   <h5>Welcome to the Homebase Item Checker web app allowing to you to check product details, stock availability and price within
     your local store</h5>
   <h5>Please prove your are a human operator to prevent misuse of the item checker: </h5>
-  <div class="col-sm-12 col-xs-12 text-center">
-    <re-captcha (resolved)="resolved($event)" siteKey="6LdyR0cUAAAAAKlL84D-PvF7BJfpfhbewOerzN9D"></re-captcha>
+  <div class="col-sm-12 col-xs-12 employee-id">
+    <form novalidate [formGroup]="uiForm">
+        <div class="col-sm-12 col-xs-12 employee-id">
+          <input #employeeId type="text" placeholder="Enter your Homebase Employee ID" formControlName="employeeId" maxlength="12"
+            (change)="activateButton()">
+        </div>
+      <div class="clearfix"></div>
+      <div class="alert alert-danger" *ngIf="error">
+        <span class="glyphicon glyphicon-warning-sign"></span>{{errorMessage}}</div>
+    </form>
   </div>
   <h5>By clicking Accept you agree to our Terms and confirm that you have read our Privacy Policy, including our Cookie Use Policy.
-    </h5>
+  </h5>
   <div class="text-center">
-    <input type="button" id="cmdAccept" class="button button--secondary button-agree" size="8" [disabled] = "!isCaptchaOk" value="Agree" (click)="clickUpdate()">
+    <input type="button" id="cmdAccept" class="button button--secondary button-agree" size="8" [disabled]="!isUserIDEntered" value="Continue"
+      (click)="clickUpdate()">
   </div>
 </section>

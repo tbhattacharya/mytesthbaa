@@ -13,6 +13,7 @@ import { SessionStorageService } from 'ngx-webstorage';
 import { ItemscananddetailComponent } from './itemscananddetail/itemscananddetail.component';
 import { ItemDetailsComponent } from './itemscananddetail/itemdetails.component';
 import { LocationComponent } from './location/location.component';
+import { BarcodeComponent } from './barcode/barcode.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { LocationComponent } from './location/location.component';
     HomeComponent,
     ItemDetailsComponent,
     ItemscananddetailComponent,
+    BarcodeComponent,
     LocationComponent
   ],
   imports: [
@@ -33,6 +35,7 @@ import { LocationComponent } from './location/location.component';
     RouterModule.forRoot([
       { path: 'application/home', component: HomeComponent},
       { path: 'application/items', component: ItemscananddetailComponent},
+      { path: 'application/barcode', component: BarcodeComponent},
       { path: '**', redirectTo: 'application/items', pathMatch: 'full' }
 
   ], { useHash: true /*preloadingStrategy: CustomPreloadingStrategy*/ })

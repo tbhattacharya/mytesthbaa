@@ -7,17 +7,17 @@
           <input #itemNumber type="text" placeholder="Search for item" class="item-finder-input" formControlName="itemnumber" maxlength="6" (change)="submit()">
         </div>
         <div class="col-sm-2 col-xs-2 item-search-button-container">
-          <button class="button-icon"></button>
+          <button class="button-icon" (click)="launchBarcodeScanner()"></button>
         </div>
       </div>
       <div class="clearfix"></div>
-      <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span>Invalid item number (must be 4-6 digit long)</div>
+      <div class="alert alert-danger" *ngIf="error"><span class="glyphicon glyphicon-warning-sign"></span>{{errorMessage}}</div>
     </form>
     <div *ngIf="isShowingDetails">
       <app-itemdetails [article]="article" [locations]="locations"></app-itemdetails>
     </div>
-    <app-modal #captcha>
-      <app-home (accept)="onAccept()"></app-home>
+    <app-modal #employeeID>
+      <app-home (verified)="onIDVerified()"></app-home>
     </app-modal>
   </div>
 </section>

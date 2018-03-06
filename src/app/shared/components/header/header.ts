@@ -1,6 +1,7 @@
 import { SessionStorageService } from 'ngx-webstorage';
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Constant } from '../../constants/constants';
 
 @Component({
     selector: 'app-header',
@@ -10,7 +11,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class HeaderComponent implements OnInit {
     public storeMessage: string = 'Select your store';
     public storeId: string = '';
-    public STORE: string = 'STORE';
     public isCollapsed = true;
     public uiForm: FormGroup;
     @ViewChild('storeNumber') storeNumber: ElementRef;
@@ -37,12 +37,12 @@ export class HeaderComponent implements OnInit {
     }
 
     public saveToSessionStorage(): void {
-        this.sStorage.store(this.STORE, this.uiForm.controls['storenumber'].value);
+        this.sStorage.store(Constant.STOTE_ID_FOR_SESSION, this.uiForm.controls['storenumber'].value);
         this.storeId = this.uiForm.controls['storenumber'].value;
     }
 
     public getFromSessionStorage(): string {
-        this.storeId = this.sStorage.retrieve(this.STORE);
+        this.storeId = this.sStorage.retrieve(Constant.STOTE_ID_FOR_SESSION);
         return this.storeId;
     }
 
