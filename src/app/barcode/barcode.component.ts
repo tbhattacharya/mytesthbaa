@@ -84,6 +84,7 @@ export class BarcodeComponent implements AfterViewInit, OnDestroy {
 
         Quagga.onDetected(function (result) {
             console.log('Barcode detected and processed : [' + result.codeResult.code + ']', result);
+            Quagga.stop();
             alert(result.codeResult.code);
         });
     }
