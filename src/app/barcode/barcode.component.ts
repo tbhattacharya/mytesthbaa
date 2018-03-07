@@ -25,7 +25,7 @@ export class BarcodeComponent implements AfterViewInit, OnDestroy {
         Quagga.init({
             inputStream: {
                 type: 'LiveStream',
-                //target: document.querySelector('#scanner-container'),
+                // target: document.querySelector('#scanner-container'),
                 constraints: {
                     width: { max: 640 },
                     height: { max: 480 },

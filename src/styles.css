@@ -18,8 +18,9 @@
 
 /* Global */
 
-input[type="text"] {
-    border: 1px solid #d6d6d6;
+input[type="text"],
+input[type="number"] {
+    border: 1px solid #888;
     padding: 4px;
     font-size: 16px;
     font-size: 1.6rem;
@@ -29,15 +30,16 @@ input[type="text"] {
     width: 96%;
     border-radius: 0;
     -webkit-appearance: none;
+    outline: none;
 }
 
-input[type="number"].ng-invalid.ng-touched {
-    border-width: 1px;
-    border-color: rgb(238, 238, 238);
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border: 2px solid #444;
 }
 
-input[type="number"].ng-invalid.ng-touched, input[type="text"].ng-invalid.ng-touched, .ng-invalid.ng-touched .button-icon {
-    border-bottom: 4px solid #BB0505;
+input[type="number"].ng-invalid.ng-touched, input[type="text"].ng-invalid.ng-touched {
+    border-bottom: 2px solid #BB0505;
 }
 
 input[type="button"] {
@@ -54,11 +56,15 @@ input[type="button"] {
     white-space: nowrap;
     height: auto;
     padding: 10px 20px;
-    line-height: 1;
+    line-height: 20px;
+    line-height: 2rem;
+    font-size: 15px;
+    font-size: 1.5rem;
     border-radius: 3px;
 }
 
 .button.button--secondary {
+    width: 100%;
     background: #41ba5a;
     color: #fff;
 }
@@ -226,9 +232,9 @@ header h2.header-text {
     background: #41BA5A;
     color: #ffffff;
     text-shadow: none;
-    font-size: 40px;
-    font-size: 3rem;
-    padding: 5px;
+    font-size: 25px;
+    font-size: 2.5rem;
+    padding: 10px 5px 5px;
     text-align: center;
     margin: 0 auto;
 }
@@ -246,13 +252,11 @@ section.main-content .item-search-button-container {
 }
 
 section.main-content .item-search-barcode input[type="text"] {
-    width: 100%;
+    width: 99%;
     height: 43px;
     padding: 0 0 0 30px;
     outline: none;
     color: #444444;
-    border: 2px solid #444;
-    border-right: none;
 }
 
 section.main-content .icon-search {
@@ -286,8 +290,8 @@ section.main-content .button-icon {
     font-size: 18px;
     color: #888;
     width: 100%;
-    border: 2px solid #444;
-    border-left: none;
+    border: 1px solid #888;
+    outline: none;
 }
 
 section.main-content .button-icon:after {
@@ -307,6 +311,7 @@ section.main-content .button-icon:after {
 }
 
 section.main-content .item-details h3 {
+    margin: 10px auto;
     text-align: center;
 }
 
@@ -314,8 +319,8 @@ section.main-content .item-details-breakup {
     margin-top: 10px;
     font-family: 'Homebase12-Regular', Helvetica, Arial, sans-serif;
     letter-spacing: -0.02em;
-    font-size: 14px;
-    font-size: 1.4rem;
+    font-size: 12px;
+    font-size: 1.2rem;
 }
 
 section.main-content .item-details-breakup h4 {
@@ -324,14 +329,14 @@ section.main-content .item-details-breakup h4 {
 
 section.main-content .item-details-breakup .data-container-left {
     margin-left: 7px;
-    padding: 5px 5px 15px;
+    padding: 0 5px 15px;
     background-color: #FFF;
     width: 47%;
 }
 
 section.main-content .item-details-breakup .data-container-right {
     margin-right: 7px;
-    padding: 5px 5px 15px;
+    padding: 0 5px 15px;
     background-color: #FFF;
     width: 47%;
 }
@@ -342,7 +347,7 @@ section.main-content .item-details-breakup .data-row-odd {
 
 section.main-content .item-details-breakup .column1 {
     border-right: 1px solid #9d9d9d;
-    font-family: 'Homebase12-Bold', Helvetica, Arial, sans-serif;
+    font-family: 'Homebase12-Regular', Helvetica, Arial, sans-serif;
     letter-spacing: -0.02em;
     padding-right: 0;
 }
@@ -443,7 +448,6 @@ section.main-content .employee-id {
     text-align: center;
     color: #41BA5A;
     font-size: 20px;
-    margin-bottom: 15px;
 }
 
 .suspended {
@@ -452,7 +456,6 @@ section.main-content .employee-id {
     text-align: center;
     color: #F7941D;
     font-size: 20px;
-    margin-bottom: 15px;
 }
 
 .discontinued {
@@ -461,7 +464,6 @@ section.main-content .employee-id {
     text-align: center;
     color: #BF0036;
     font-size: 20px;
-    margin-bottom: 15px;
 }
 
 .price-perunit {
@@ -480,7 +482,7 @@ section.main-content .employee-id {
 
 .row2 .data-container-left,
 .row2 .data-container-right {
-    height: 140px;
+    height: 120px;
 }
 .data-container-left h6,
 .data-container-right h6 {
@@ -543,4 +545,20 @@ section.main-content .employee-id {
 }
 .location-close{
     margin-top: 10px!important;
+}
+
+.modal-content section {
+    border: 1px solid #888;
+    padding-top: 0;
+    padding-bottom: 5px;
+}
+
+.modal-content {
+    border-radius: 0!important;
+}
+
+#interactive canvas {
+    position: absolute;
+    top: 75px;
+    left: 0;
 }
