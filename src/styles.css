@@ -141,7 +141,7 @@ header .row {
     line-height: 2.2rem;
     background: #ffffff;
     color: #379E49;
-    padding: 11px 0;
+    padding: 5px 0;
 }
 
 header .row .store-icon:before {
@@ -192,7 +192,7 @@ header .row .dropdown:after {
 
 header .dropdown-container {
     position: absolute;
-    top: 45px;
+    top: 30px;
     border-bottom: 1px solid #ccc;
     display: none;
     z-index: 999;
@@ -228,7 +228,7 @@ header h2.header-text {
     text-shadow: none;
     font-size: 40px;
     font-size: 3rem;
-    padding: 10px;
+    padding: 5px;
     text-align: center;
     margin: 0 auto;
 }
@@ -373,12 +373,12 @@ section.main-content .item-details-breakup .available {
 }
 
 section.main-content .item-details-breakup .available .item-availability {
-    background-color: #41BA5A;
+    background-color: #FFF;
 }
 
 section.main-content .item-details-breakup .available .item-availability:after {
-    content: '\e805';
-    color: #FFF;
+    content: '\e801';
+    color: #41BA5A;
     width: 24px;
     height: 24px;
 }
@@ -388,12 +388,27 @@ section.main-content .item-details-breakup .low {
 }
 
 section.main-content .item-details-breakup .low .item-availability {
-    background-color: #F7941D;
+    background-color: #FFF;
 }
 
 section.main-content .item-details-breakup .low .item-availability:after {
-    content: '\e829';
-    color: #FFF;
+    content: '\e802';
+    color: #F7941D;
+    width: 24px;
+    height: 24px;
+}
+
+section.main-content .item-details-breakup .empty {
+    color: #BF0036;
+}
+
+section.main-content .item-details-breakup .empty .item-availability {
+    background-color: #FFF;
+}
+
+section.main-content .item-details-breakup .empty .item-availability:after {
+    content: '\e800';
+    color: #BF0036;
     width: 24px;
     height: 24px;
 }
@@ -422,11 +437,29 @@ section.main-content .employee-id {
     font-size: 1.6rem;
 }
 
-.availability {
+.availableInStore {
     font-family: 'Homebase12-Bold', Helvetica, Arial, sans-serif;
     letter-spacing: -0.02em;
     text-align: center;
-    color: green;
+    color: #41BA5A;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.suspended {
+    font-family: 'Homebase12-Bold', Helvetica, Arial, sans-serif;
+    letter-spacing: -0.02em;
+    text-align: center;
+    color: #F7941D;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.discontinued {
+    font-family: 'Homebase12-Bold', Helvetica, Arial, sans-serif;
+    letter-spacing: -0.02em;
+    text-align: center;
+    color: #BF0036;
     font-size: 20px;
     margin-bottom: 15px;
 }

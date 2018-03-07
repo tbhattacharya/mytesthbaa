@@ -6,8 +6,8 @@
 </div>
 <div class="row item-details-breakup">
     <div class="data-container-left pull-left">
-        <h4 class="available">
-            <span class="item-availability"></span> 24 on order
+        <h4 [ngClass]="stockDisplay">
+            <span class="item-availability"></span> {{stockQuantity}}
         </h4>
         <div class="col-sm-6 col-xs-6 data-row-odd column1">Shop floor</div>
         <div class="col-sm-6 col-xs-6 data-row-odd">{{ article.ShopFloorStock }}</div>
@@ -22,8 +22,8 @@
     </div>
     <div class="data-container-right pull-right">
 
-        <h4 class="low">
-            <span class="item-availability"></span> Only 4 on order
+        <h4 [ngClass]="orderDisplay">
+            <span class="item-availability"></span> {{orderQuantity}}
         </h4>
         <div class="col-sm-6 col-xs-6 data-row-odd column1">In Transit</div>
         <div class="col-sm-6 col-xs-6 data-row-odd">{{ article.StockInTransit }}</div>
@@ -54,8 +54,8 @@
         <h6>
             Status:
         </h6>
-        <div class="col-sm-12 col-xs-12 data-row-even availability">Available</div>
-        <div class="col-sm-12 col-xs-12 data-row-even price-perunit">£16.75</div>
+        <div class="col-sm-12 col-xs-12 data-row-even" [ngClass]="statusDisplay">{{status}}</div>
+        <div class="col-sm-12 col-xs-12 data-row-even price-perunit">{{price}}</div>
     </div>
 
 </div>

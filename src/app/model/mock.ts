@@ -17,7 +17,7 @@ export const MOCK = `{
 			"OrderedStock": "2",
 			"RequestedStock": "2",
 			"StockLastReceivedOn": "11.02.2018",
-			"SiteStatusCode" : "",
+			"SiteStatusCode" : "Z2",
 			"SiteStatusName": "",
 			"CurrentPrice": "£ 16.88",
 			"OnPromotion" : "PROM",

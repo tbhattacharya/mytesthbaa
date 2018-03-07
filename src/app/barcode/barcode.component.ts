@@ -1,5 +1,5 @@
 import * as Quagga from 'quagga';
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 
 
 @Component({
@@ -7,87 +7,58 @@ import { Component, AfterViewInit } from '@angular/core';
     templateUrl: './barcode.component.html'
 })
 
-export class BarcodeComponent implements AfterViewInit {
+export class BarcodeComponent implements AfterViewInit, OnDestroy {
+
     public _scannerIsRunning = false;
 
 
     ngAfterViewInit(): void {
-        this.startScanner();
+        try {
+            this.startScanner();
+        } catch (e) {
+            console.log(e);
+        }
     }
+
     public startScanner() {
         console.log('Quagga', Quagga);
         Quagga.init({
             inputStream: {
                 type: 'LiveStream',
-                target: document.querySelector('#scanner-container'),
+                //target: document.querySelector('#scanner-container'),
                 constraints: {
-                    width: { max: 320 },
-                    height: { max: 240 },
+                    width: { max: 640 },
+                    height: { max: 480 },
                     aspectRatio: { min: 1, max: 100 },
                     facingMode: 'environment' // or user
                 }
             },
             locator: {
-                patchSize: 'medium',
+                patchSize: 'small',
                 halfSample: true
             },
-            numOfWorkers: 2,
+            numOfWorkers: 4,
             frequency: 10,
             decoder: {
                 readers: [{
-                    format: 'code_128_reader',
+                    format: 'ean_reader',
                     config: {}
                 }]
             },
             locate: true
-        }
-            /* {
-            inputStream: {
-                name: 'Live',
-                type: 'LiveStream',
-                target: document.querySelector('#scanner-container'),
-                constraints: {
-                    width: 480,
-                    height: 320,
-                    facingMode: 'environment'
-                },
-            },
-            decoder: {
-                readers: [
-                    'code_128_reader'
-                ],
-                debug: {
-                    showCanvas: true,
-                    showPatches: true,
-                    showFoundPatches: true,
-                    showSkeleton: true,
-                    showLabels: true,
-                    showPatchLabels: true,
-                    showRemainingPatchLabels: true,
-                    boxFromPatches: {
-                        showTransformed: true,
-                        showTransformedBox: true,
-                        showBB: true
-                    }
-                }
-            },
+        }, function (err) {
+            if (err) {
+                console.log(err);
+                return;
+            }
 
-        } */, function (err) {
-                if (err) {
-                    console.log(err);
-                    return;
-                }
-
-                console.log('Initialization finished. Ready to start');
-                Quagga.start();
-
-                // Set flag to is running
-                // this._scannerIsRunning = true;
-            });
+            console.log('Initialization finished. Ready to start');
+            Quagga.start();
+        });
 
         Quagga.onProcessed(function (result) {
-            const drawingCtx = Quagga.canvas.ctx.overlay,
-                drawingCanvas = Quagga.canvas.dom.overlay;
+            let drawingCtx = Quagga.canvas.ctx.overlay;
+            let drawingCanvas = Quagga.canvas.dom.overlay;
 
             if (result) {
                 if (result.boxes) {
@@ -113,6 +84,11 @@ export class BarcodeComponent implements AfterViewInit {
 
         Quagga.onDetected(function (result) {
             console.log('Barcode detected and processed : [' + result.codeResult.code + ']', result);
+            alert(result.codeResult.code);
         });
+    }
+
+    ngOnDestroy(): void {
+        Quagga.stop();
     }
 }
