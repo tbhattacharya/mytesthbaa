@@ -18,7 +18,7 @@
     <div *ngIf="isShowingDetails">
       <app-itemdetails [article]="article" [locations]="locations"></app-itemdetails>
     </div>
-    <app-modal #employeeID>
+    <app-modal #employeeID [showHeader]="'true'">
       <app-home (verified)="onIDVerified()"></app-home>
     </app-modal>
   </div>

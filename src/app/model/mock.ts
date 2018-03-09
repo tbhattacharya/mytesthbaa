@@ -1,5 +1,6 @@
 export const MOCK = `{
 	"GeneralEnquiries": {
+		"ReturnCode": "00",
 		"Article": {
 			"Site": "127",
 			"ItemCode": "485569",
@@ -11,7 +12,7 @@ export const MOCK = `{
 			"CustomerStock": "2",
 			"StockInOvers": "3",
 			"BlockedStock": "0",
-			"StockOnOrder" : "12",
+			"IncomingStock" : "12",
 			"StockInTransit": "18",
 			"StockInTransfer": "0",
 			"OrderedStock": "2",

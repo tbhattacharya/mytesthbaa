@@ -38,26 +38,26 @@ export class ItemDetailsComponent implements OnInit, OnChanges {
     if (this.article) {
       const avStock = parseInt(this.article.AvailableStock, 10);
       if (avStock > 5) {
-        this.stockQuantity = avStock + ' in stock';
+        this.stockQuantity = avStock + ' available';
         this.stockDisplay = 'available';
       } else if (avStock > 0) {
-        this.stockQuantity = 'Only ' + avStock + ' in stock';
+        this.stockQuantity = 'Only ' + avStock + ' available';
         this.stockDisplay = 'low';
       } else {
-        this.stockQuantity = 'Out of stock';
+        this.stockQuantity = 'none available';
         this.stockDisplay = 'empty';
       }
 
-      const orStock = parseInt(this.article.StockOnOrder, 10);
+      const orStock = parseInt(this.article.IncomingStock, 10);
       if (orStock > 5) {
         this.orderQuantity = orStock + ' on order';
         this.orderDisplay = 'available';
       } else if (orStock > 0) {
         this.orderQuantity = 'Only ' + orStock + ' on order';
-        this.orderDisplay = 'available';
+        this.orderDisplay = 'low';
       } else {
-        this.orderQuantity = 'None on order';
-        this.orderDisplay = 'available';
+        this.orderQuantity = 'none on order';
+        this.orderDisplay = 'empty';
       }
 
       if (this.article.SiteStatusCode === 'Z3') {

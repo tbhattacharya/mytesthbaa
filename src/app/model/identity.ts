@@ -1,1 +1,1 @@
-export const ID_MOCK = `{"allowed":true}`
+export const ID_MOCK = `{"allowed":true, "returnCode": "00"}`
