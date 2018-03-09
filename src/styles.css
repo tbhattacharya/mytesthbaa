@@ -307,7 +307,6 @@ section.main-content .button-icon:after {
     -moz-osx-font-smoothing: grayscale;
     line-height: 20px;
     line-height: 2rem;
-    content: '\e819';
 }
 
 section.main-content .item-details h3 {
@@ -574,4 +573,104 @@ canvas.drawing, canvas.drawingBuffer {
     position: absolute; 
     left: 0; 
     top: 75px;
+}
+
+/* Spinner */
+
+.spinner {
+    width: 70px;
+    text-align: center;
+    position: fixed;
+    z-index: 99999;
+    top: 50%;
+    left: 50%;
+    margin-left: -35px;
+}
+
+.spinner>div {
+    width: 18px;
+    height: 18px;
+    background-color: #41BA5A;
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0)
+    }
+    40% {
+        -webkit-transform: scale(1.0)
+    }
+}
+
+@keyframes sk-bouncedelay {
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    40% {
+        -webkit-transform: scale(1.0);
+        transform: scale(1.0);
+    }
+}
+
+.screen-overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #ddd;
+    opacity: 0.3;
+    z-index: 5;
+}
+
+
+/* Slim loader */
+
+.slim-loading-bar {
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+}
+
+
+/* Styling for the Slim Loading Progress Bar itself */
+
+.slim-loading-bar-progress {
+    margin: 0;
+    padding: 0;
+    z-index: 99998;
+    background-color: green;
+    color: green;
+    box-shadow: 0 0 10px 0;
+    /* Inherits the font color */
+    height: 2px;
+    opacity: 0;
+    /* Add CSS3 styles for transition smoothing */
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }

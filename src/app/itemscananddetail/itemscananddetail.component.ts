@@ -3,12 +3,15 @@ import { GeneralEnquiries } from './../model/enquiry';
 import { Location } from './../model/location';
 import { HttpService } from './../shared/services/http-service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Component, OnInit, HostListener, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, HostListener, AfterViewInit, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { SessionStorageService } from 'ngx-webstorage';
 import { Article } from '../model/article';
 import { ErrorType, ServerError } from '../shared/error/ErrorType';
 import { Constant } from '../shared/constants/constants';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Subscription } from 'rxjs/Subscription';
+import { AjaxConstant } from '../shared/constants/AjaxConstant';
 
 @Component({
   selector: 'app-itemscananddetail',
@@ -25,9 +28,29 @@ export class ItemscananddetailComponent implements OnInit, AfterViewInit {
   public product: GeneralEnquiries;
   public error: boolean = false;
   public errorMessage: String = '';
+  public ajaxSource = new BehaviorSubject<any>(0);
+  public ajaxSource$;
+  public ajaxSubscription: Subscription;
+  public isRequesting: boolean = false;
 
   constructor(private formBuilder: FormBuilder, private httpService: HttpService,
-    private sStorage: SessionStorageService, private router: Router) { }
+    private sStorage: SessionStorageService, private router: Router, private zone: NgZone) {
+    this.ajaxSource$ = this.ajaxSource.asObservable();
+    this.ajaxSubscription = this.ajaxSource$.subscribe(event => {
+      if (event !== 0) {
+        this.zone.run(() => {
+          switch (event) {
+            case AjaxConstant.START:
+              this.isRequesting = true;
+              break;
+            case AjaxConstant.COMPLETE:
+              this.isRequesting = false;
+              break;
+          }
+        });
+      }
+    });
+  }
 
   ngOnInit() {
     this.uiForm = this.formBuilder.group({
@@ -58,9 +81,11 @@ export class ItemscananddetailComponent implements OnInit, AfterViewInit {
       return;
     }
     if (this.uiForm.valid) {
+      this.ajaxSource.next(AjaxConstant.START);
       this.httpService.fetchDataForItem(this.uiForm.controls['itemnumber'].value, this.getFromSessionStorage())
         .subscribe(
           data => {
+            this.ajaxSource.next(AjaxConstant.COMPLETE);
             if (data) {
               console.log('DATA ', data);
               this.article = data['GeneralEnquiries'].Article;
@@ -69,6 +94,7 @@ export class ItemscananddetailComponent implements OnInit, AfterViewInit {
             }
           },
           error => {
+            this.ajaxSource.next(AjaxConstant.COMPLETE);
             if (error && error.error && error.error.Error) {
               if (error.error.Error.Status === ServerError.INVALID_SITE) {
                 this.handleError(ErrorType.STORE_NO_NOT_FOUND);
