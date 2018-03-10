@@ -37,7 +37,7 @@ export class ItemDetailsComponent implements OnInit, OnChanges {
   public populateUI(): void {
     if (this.article) {
       const avStock = parseInt(this.article.AvailableStock, 10);
-      if (avStock > 5) {
+      if (avStock > 2) {
         this.stockQuantity = avStock + ' in stock';
         this.stockDisplay = 'available';
       } else if (avStock > 0) {
@@ -49,15 +49,15 @@ export class ItemDetailsComponent implements OnInit, OnChanges {
       }
 
       const orStock = parseInt(this.article.StockOnOrder, 10);
-      if (orStock > 5) {
+      if (orStock > 2) {
         this.orderQuantity = orStock + ' on order';
         this.orderDisplay = 'available';
       } else if (orStock > 0) {
         this.orderQuantity = 'Only ' + orStock + ' on order';
-        this.orderDisplay = 'available';
+        this.orderDisplay = 'low';
       } else {
         this.orderQuantity = 'None on order';
-        this.orderDisplay = 'available';
+        this.orderDisplay = 'empty';
       }
 
       if (this.article.SiteStatusCode === 'Z3') {

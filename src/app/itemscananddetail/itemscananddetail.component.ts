@@ -17,6 +17,7 @@ import { Router } from '@angular/router';
 export class ItemscananddetailComponent implements OnInit, AfterViewInit {
 
   @ViewChild('employeeID') employeeID: ModalComponent;
+  @ViewChild('barcode') barcode: ModalComponent;
   @ViewChild('itemNumber') itemNumber: ElementRef;
   public isShowingDetails: boolean = false;
   public uiForm: FormGroup;
@@ -25,6 +26,7 @@ export class ItemscananddetailComponent implements OnInit, AfterViewInit {
   public product: GeneralEnquiries;
   public error: boolean = false;
   public errorMessage: String = '';
+  public barcodeState: boolean = false;
 
   constructor(private formBuilder: FormBuilder, private httpService: HttpService,
     private sStorage: SessionStorageService, private router: Router) { }
@@ -53,35 +55,34 @@ export class ItemscananddetailComponent implements OnInit, AfterViewInit {
 
   public submit(): void {
     this.isShowingDetails = false;
+    this.itemNumber.nativeElement.blur();
     if (!this.getFromSessionStorage()) {
       this.handleError(ErrorType.INVALID_STORE_NO);
       return;
     }
     if (this.uiForm.valid) {
-      this.httpService.fetchDataForItem(this.uiForm.controls['itemnumber'].value, this.getFromSessionStorage())
-        .subscribe(
-          data => {
-            if (data) {
-              console.log('DATA ', data);
-              this.article = data['GeneralEnquiries'].Article;
-              this.locations = data['GeneralEnquiries'].Locations;
-              this.isShowingDetails = true;
-            }
-          },
-          error => {
-            if (error && error.error && error.error.Error) {
-              if (error.error.Error.Status === ServerError.INVALID_SITE) {
-                this.handleError(ErrorType.STORE_NO_NOT_FOUND);
-              } else if (error.error.Error.Status === ServerError.INVALID_ARTICLE) {
-                this.handleError(ErrorType.ITEM_NO_NOT_FOUND);
-              } else {
-                this.handleError(ErrorType.GENERIC);
-              }
+      this.httpService.fetchDataForItem(this.uiForm.controls['itemnumber'].value, this.getFromSessionStorage()).subscribe(
+        data => {
+          if (data) {
+            console.log('DATA ', data);
+            this.article = data['GeneralEnquiries'].Article;
+            this.locations = data['GeneralEnquiries'].Locations;
+            this.isShowingDetails = true;
+          }
+        },
+        error => {
+          if (error && error.error && error.error.Error) {
+            if (error.error.Error.Status === ServerError.INVALID_SITE) {
+              this.handleError(ErrorType.STORE_NO_NOT_FOUND);
+            } else if (error.error.Error.Status === ServerError.INVALID_ARTICLE) {
+              this.handleError(ErrorType.ITEM_NO_NOT_FOUND);
             } else {
               this.handleError(ErrorType.GENERIC);
             }
-          });
-      this.itemNumber.nativeElement.blur();
+          } else {
+            this.handleError(ErrorType.GENERIC);
+          }
+        });
       /*let data = this.httpService.fetchDataForItem(this.uiForm.controls['itemnumber'].value, this.getFromSessionStorage());
       this.article = data.Article;
       this.locations = data.Locations;
@@ -122,7 +123,16 @@ export class ItemscananddetailComponent implements OnInit, AfterViewInit {
   }
 
   public launchBarcodeScanner(): void {
-    this.router.navigate(['application/barcode']);
+    // this.router.navigate(['application/barcode']);
+    this.barcodeState = true;
+    this.barcode.show({});
+  }
+
+  public barcodeDetected(data: any): void {
+    this.barcodeState = false;
+    this.barcode.hide();
+    this.uiForm.controls['itemnumber'].setValue(data);
+    this.submit();
   }
 
 }

@@ -1,5 +1,5 @@
 import * as Quagga from 'quagga';
-import { Component, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, Output, EventEmitter, Input, OnChanges } from '@angular/core';
 
 
 @Component({
@@ -7,21 +7,12 @@ import { Component, AfterViewInit, OnDestroy } from '@angular/core';
     templateUrl: './barcode.component.html'
 })
 
-export class BarcodeComponent implements AfterViewInit, OnDestroy {
+export class BarcodeComponent implements OnDestroy, OnChanges {
 
-    public _scannerIsRunning = false;
-
-
-    ngAfterViewInit(): void {
-        try {
-            this.startScanner();
-        } catch (e) {
-            console.log(e);
-        }
-    }
+    @Output() barcodeDetected = new EventEmitter();
+    @Input() state: boolean = false;
 
     public startScanner() {
-        console.log('Quagga', Quagga);
         Quagga.init({
             inputStream: {
                 type: 'LiveStream',
@@ -82,14 +73,20 @@ export class BarcodeComponent implements AfterViewInit, OnDestroy {
         });
 
 
-        Quagga.onDetected(function (result) {
+        Quagga.onDetected((result) => {
             console.log('Barcode detected and processed : [' + result.codeResult.code + ']', result);
             Quagga.stop();
-            alert(result.codeResult.code);
+            this.barcodeDetected.emit(result.codeResult.code);
         });
     }
 
     ngOnDestroy(): void {
         Quagga.stop();
+    }
+
+    ngOnChanges(): void {
+        if (this.state) {
+            this.startScanner();
+        }
     }
 }

@@ -547,7 +547,7 @@ section.main-content .employee-id {
     margin-top: 10px!important;
 }
 
-.modal-content section {
+.modal-content section1 {
     border: 1px solid #888;
     padding-top: 0;
     padding-bottom: 5px;
@@ -573,5 +573,5 @@ section.main-content .employee-id {
 canvas.drawing, canvas.drawingBuffer {
     position: absolute; 
     left: 0; 
-    top: 75px;
+    top: 0;
 }
