@@ -22,7 +22,7 @@ export interface Article {
     CustomerStock: string;
     StockInOvers: string;
     BlockedStock: string;
-    StockOnOrder: string;
+    IncomingStock: string;
     StockInTransit: string;
     StockInTransfer: string;
     OrderedStock: string;

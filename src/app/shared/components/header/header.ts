@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
 
     ngOnInit(): void {
         this.uiForm = this.formBuilder.group({
-            storenumber: ['', [Validators.pattern('^[0-9]{3}$'), Validators.required]]
+            storenumber: ['', [Validators.pattern('^[0-9]{3}$')]]
         });
         if (this.getFromSessionStorage()) {
             this.storeMessage = 'Store ' + this.getFromSessionStorage();

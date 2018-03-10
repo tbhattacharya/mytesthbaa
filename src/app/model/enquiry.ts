@@ -3,4 +3,5 @@ import { Article } from './article';
 export interface GeneralEnquiries {
     Article: Article;
     Locations: Array<Location>;
+    ReturnCode: string;
 }

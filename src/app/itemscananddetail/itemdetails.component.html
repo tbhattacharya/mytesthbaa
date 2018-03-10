@@ -17,23 +17,23 @@
         <div class="col-sm-6 col-xs-6 data-row-odd">{{ article.CustomerStock }}</div>
         <div class="col-sm-6 col-xs-6 data-row-even column1"><strong>Overs</strong></div>
         <div class="col-sm-6 col-xs-6 data-row-even">{{ article.StockInOvers }}</div>
-        <div class="col-sm-6 col-xs-6 data-row-odd column1"><strong>Blocked</strong></div>
-        <div class="col-sm-6 col-xs-6 data-row-odd">{{ article.BlockedStock }}</div>
+        <div class="col-sm-6 col-xs-6 data-row-odd column1"><strong>&nbsp;</strong></div>
+        <div class="col-sm-6 col-xs-6 data-row-odd">&nbsp;</div>
     </div>
     <div class="data-container-right pull-right">
 
         <h4 [ngClass]="orderDisplay">
             <span class="item-availability"></span> {{orderQuantity}}
         </h4>
-        <div class="col-sm-6 col-xs-6 data-row-odd column1">In Transit</div>
+        <div class="col-sm-6 col-xs-6 data-row-odd column1"><strong>In Transit</strong></div>
         <div class="col-sm-6 col-xs-6 data-row-odd">{{ article.StockInTransit }}</div>
-        <div class="col-sm-6 col-xs-6 data-row-even column1">In Transfer</div>
+        <div class="col-sm-6 col-xs-6 data-row-even column1"><strong>In Transfer</strong></div>
         <div class="col-sm-6 col-xs-6 data-row-even">{{ article.StockInTransfer }}</div>
-        <div class="col-sm-6 col-xs-6 data-row-odd column1">Ordered</div>
+        <div class="col-sm-6 col-xs-6 data-row-odd column1"><strong>Ordered</strong></div>
         <div class="col-sm-6 col-xs-6 data-row-odd">{{ article.OrderedStock }}</div>
-        <div class="col-sm-6 col-xs-6 data-row-even column1">Requested</div>
+        <div class="col-sm-6 col-xs-6 data-row-even column1"><strong>Requested</strong></div>
         <div class="col-sm-6 col-xs-6 data-row-even">{{ article.RequestedStock }}</div>
-        <div class="col-sm-6 col-xs-6 data-row-odd column1">Last GR</div>
+        <div class="col-sm-6 col-xs-6 data-row-odd column1"><strong>Last GR</strong></div>
         <div class="col-sm-6 col-xs-6 data-row-odd">{{ article.StockLastReceivedOn }}</div>
     </div>
 </div>
@@ -51,7 +51,7 @@
         </div>
     </div>
     <div class="data-container-right pb-5 pull-right">
-        <h6>
+        <h6 class="mb-0">
             Status:
         </h6>
         <div class="col-sm-12 col-xs-12 data-row-even" [ngClass]="statusDisplay">{{status}}</div>

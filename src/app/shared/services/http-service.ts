@@ -16,7 +16,7 @@ export class HttpService {
     }
 
     public checkEmployeeId(empid: string): Observable<any> {
-        let url: string = 'http://dxau1wmb01:7080/homebase/api/identity';
+        let url: string = 'http://dxau1wmb01:7080/homebase/identity';
         if (Constant.MODE == 0) {
             return this.http.post(url, {
                 'id': empid
@@ -30,7 +30,7 @@ export class HttpService {
     public fetchDataForItem(article: string, site: string): Observable<GeneralEnquiries> {
 
         let params = '?article=' + article + '&site=' + site;
-        let url: string = 'http://dxau1wmb01:7080/homebase/api' + params;
+        let url: string = 'http://dxau1wmb01:7080/homebase/item' + params;
         if (Constant.MODE == 0) {
             return this.http.get<GeneralEnquiries>(url);
         } else {
