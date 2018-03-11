@@ -1,3 +1,4 @@
+import { BarcodeComponent } from './../barcode/barcode.component';
 import { ModalComponent } from './../shared/components/modal/modal';
 import { GeneralEnquiries } from './../model/enquiry';
 import { Location } from './../model/location';
@@ -23,6 +24,7 @@ export class ItemscananddetailComponent implements OnInit, AfterViewInit {
   @ViewChild('employeeID') employeeID: ModalComponent;
   @ViewChild('barcode') barcode: ModalComponent;
   @ViewChild('itemNumber') itemNumber: ElementRef;
+  @ViewChild('quaggaComp') quaggaComp: BarcodeComponent;
   public isShowingDetails: boolean = false;
   public uiForm: FormGroup;
   public article: Article;
@@ -162,6 +164,10 @@ export class ItemscananddetailComponent implements OnInit, AfterViewInit {
       return true;
     }
     return false;
+  }
+
+  public modalClose(): void {
+    //this.quaggaComp.stopCamera();
   }
 
 }

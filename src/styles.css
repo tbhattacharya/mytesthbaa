@@ -697,13 +697,6 @@ canvas.drawing, canvas.drawingBuffer {
     border-radius: 0;
 }
 
-.modal-close {
-    position: absolute;
-    right: 0.5em;
-    top: 0.5em;
-    z-index: 10;
-}
-
 .modal-content .page-title .title-label{
     margin-bottom: 0px;
         margin-top: 0;
@@ -738,28 +731,24 @@ canvas.drawing, canvas.drawingBuffer {
     width: 70%;
 }
 
-.close{
-    margin-top: -2px;
-}
-button.close {
-    -webkit-appearance: none;
-    padding: 0;
-    cursor: pointer;
-    background: 0 0;
-    border: 0;
+.modal-header {
+    padding: 5px!important;
+    padding-right: 0!important;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: 'Homebase12-Regular', Helvetica, Arial, sans-serif;
+    letter-spacing: -0.02em;
+    font-size: 14px;
+    font-size: 1.4rem;
 }
 .modal-header button {
-    height: 100%;
-    width: 100%;
-    background-image: url("/assets/close.png");
+    background-image: url("/assets/green-cross-mark.png");
     background-repeat: no-repeat;
     background-position: 50%;
     background-size: 100% 100%;
-    position: absolute;
-    right: -.8em;
-    top: -.5em;
-    padding: 3px;
-    height: 30px;
-    width: 30px;
+    height: 24px;
+    width: 24px;
+    float: right;
+    border: 0;
     font-size: 1.4em;
 }

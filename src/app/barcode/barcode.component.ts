@@ -85,8 +85,15 @@ export class BarcodeComponent implements OnDestroy, OnChanges {
     }
 
     ngOnChanges(): void {
+        console.log('Onchange');
         if (this.state) {
+            console.log('~Start');
             this.startScanner();
         }
+    }
+
+    public stopCamera(): void {
+        console.log('Stop called');
+        Quagga.stop();
     }
 }

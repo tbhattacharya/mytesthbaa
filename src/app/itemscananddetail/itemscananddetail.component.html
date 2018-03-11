@@ -18,11 +18,11 @@
     <div *ngIf="isShowingDetails">
       <app-itemdetails [article]="article" [locations]="locations"></app-itemdetails>
     </div>
-    <app-modal #employeeID [showHeader]="'true'">
+    <app-modal #employeeID>
       <app-home (verified)="onIDVerified()"></app-home>
     </app-modal>
-    <app-modal #barcode>
-      <app-barcode (barcodeDetected)="barcodeDetected($event)" [state]="barcodeState"></app-barcode>
+    <app-modal #barcode  [showHeader]="'true'" [title]="'Scan Barcode'" (modalClose)="modalClose()">
+      <app-barcode #quaggaComp (barcodeDetected)="barcodeDetected($event)" [state]="barcodeState"></app-barcode>
     </app-modal>
   </div>
 </section>
