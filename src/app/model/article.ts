@@ -31,4 +31,5 @@ export interface Article {
     SiteStatusCode: string;
     SiteStatusName: string;
     OnPromotion: string;
+    CurrencyCode: string;
 }

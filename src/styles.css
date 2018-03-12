@@ -303,26 +303,11 @@ section.main-content .button-icon {
     background-color: #FFF;
     height: 43px;
     padding-top: 5px;
-    font-size: 24px;
+    font-size: 16px;
     color: #888;
     width: 100%;
     border: 1px solid #888;
     outline: none;
-}
-
-section.main-content .button-icon:after {
-    font-family: 'homebaseicons';
-    font-style: normal;
-    font-weight: normal;
-    display: inline-block;
-    text-decoration: inherit;
-    text-align: center;
-    font-variant: normal;
-    text-transform: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    line-height: 20px;
-    line-height: 2rem;
 }
 
 section.main-content .item-details h3 {
@@ -494,6 +479,14 @@ section.main-content .employee-id {
     text-align: center;
     font-size: 22px;
     padding: 10px;
+}
+
+.price-perunit-non-promo{
+    color: #000
+}
+
+.price-perunit-promo{
+    color: #BF0036
 }
 
 .row2 {
@@ -746,13 +739,22 @@ canvas.drawing, canvas.drawingBuffer {
     font-size: 1.4rem;
 }
 .modal-header button {
-    background-image: url("/assets/green-cross-mark.png");
+    background-image: url("/assets/close.svg");
     background-repeat: no-repeat;
     background-position: 50%;
     background-size: 100% 100%;
+    background-color: #FFFFFF;
     height: 24px;
     width: 24px;
     float: right;
     border: 0;
     font-size: 1.4em;
+}
+
+.promo {
+    width: 70px;
+    position: absolute;
+    z-index: 100;
+    left: 80px;
+    top: 10px;
 }

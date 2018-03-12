@@ -55,7 +55,10 @@
             Status:
         </h6>
         <div class="col-sm-12 col-xs-12 data-row-even" [ngClass]="statusDisplay">{{status}}</div>
-        <div class="col-sm-12 col-xs-12 data-row-even price-perunit">{{price}}</div>
+        <div class="col-sm-12 col-xs-12 data-row-even price-perunit" [ngClass]="priceColor">
+            {{price}}
+            <img *ngIf="showPromo" src="assets/promo.png" class="promo"/>
+        </div>
     </div>
 
 </div>

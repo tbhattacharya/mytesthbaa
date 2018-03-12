@@ -5,6 +5,7 @@ import { GeneralEnquiries } from './../model/enquiry';
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Article } from '../model/article';
 import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
+import { Constant } from '../shared/constants/constants';
 
 @Component({
   selector: 'app-itemdetails',
@@ -23,6 +24,8 @@ export class ItemDetailsComponent implements OnInit, OnChanges {
   public stockDisplay: string = '';
   public orderDisplay: string = '';
   public statusDisplay: string = '';
+  public priceColor: string = '';
+  public showPromo: boolean = false;
 
   constructor() {
   }
@@ -71,7 +74,19 @@ export class ItemDetailsComponent implements OnInit, OnChanges {
         this.statusDisplay = 'availableInStore';
       }
 
-      this.price = '£' + this.article.CurrentPrice;
+      // Price and promo
+      if (this.article.OnPromotion === Constant.PROMO) {
+        this.showPromo = true;
+        this.priceColor = 'price-perunit-promo';
+      } else {
+        this.showPromo = false;
+        this.priceColor = 'price-perunit-non-promo';
+      }
+      let currencyCode = '£';
+      if (this.article.CurrencyCode === Constant.EUR) {
+        currencyCode = '€';
+      }
+      this.price = currencyCode+ ' ' + this.article.CurrentPrice;
     }
   }
 

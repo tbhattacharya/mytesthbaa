@@ -20,7 +20,7 @@ export const MOCK = `{
 			"StockLastReceivedOn": "11.02.2018",
 			"SiteStatusCode" : "Z2",
 			"SiteStatusName": "",
-			"CurrentPrice": "£ 16.88",
+			"CurrentPrice": "16.88",
 			"OnPromotion" : "PROM",
 			"ArticleCategory": "00",
 			"ArticleCategoryDescription": "description",
@@ -33,7 +33,8 @@ export const MOCK = `{
 			"CrossDistributionChainArticleStatusDescription": "",
 			"SiteSpecificArticleStatus": "",
 			"SiteSpecificArticleStatusDescription": "",
-			"PackSize": 0
+			"PackSize": 0,
+			"CurrencyCode": ""
 		},
 		"Locations": [{
 				"LocationCode": "0790-0703-006",
