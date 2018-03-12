@@ -12,7 +12,7 @@ export const MOCK = `{
 			"CustomerStock": "2",
 			"StockInOvers": "3",
 			"BlockedStock": "0",
-			"IncomingStock" : "12",
+			"IncomingStock" : "1",
 			"StockInTransit": "18",
 			"StockInTransfer": "0",
 			"OrderedStock": "2",

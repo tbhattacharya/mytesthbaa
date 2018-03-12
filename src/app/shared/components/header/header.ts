@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
 
     ngOnInit(): void {
         this.uiForm = this.formBuilder.group({
-            storenumber: ['', [Validators.pattern('^[0-9]{3}$')]]
+            storenumber: ['']
         });
         if (this.getFromSessionStorage()) {
             this.storeMessage = 'Store ' + this.getFromSessionStorage();
@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit {
     }
 
     public updateStoreID(): void {
-        if (this.uiForm.valid) {
+        if (this.uiForm.valid && this.fielsHasValue('storenumber')) {
             this.storeNumber.nativeElement.blur();
             this.saveToSessionStorage();
             this.storeMessage = 'Store ' + this.uiForm.controls['storenumber'].value;
@@ -52,5 +52,13 @@ export class HeaderComponent implements OnInit {
 
     public expanded(event: any): void {
         console.log(event);
+    }
+
+    public fielsHasValue(field: string): boolean {
+        const val = this.uiForm.controls[field].value;
+        if (val !== null && val !== undefined && val !== '') {
+            return true;
+        }
+        return false;
     }
 }

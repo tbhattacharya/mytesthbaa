@@ -44,7 +44,7 @@ export class ItemDetailsComponent implements OnInit, OnChanges {
         this.stockQuantity = avStock + ' available';
         this.stockDisplay = 'available';
       } else if (avStock > 0) {
-        this.stockQuantity = 'Only ' + avStock + ' available';
+        this.stockQuantity = 'only ' + avStock + ' available';
         this.stockDisplay = 'low';
       } else {
         this.stockQuantity = 'none available';
@@ -56,7 +56,7 @@ export class ItemDetailsComponent implements OnInit, OnChanges {
         this.orderQuantity = orStock + ' on order';
         this.orderDisplay = 'available';
       } else if (orStock > 0) {
-        this.orderQuantity = 'Only ' + orStock + ' on order';
+        this.orderQuantity = 'only ' + orStock + ' on order';
         this.orderDisplay = 'low';
       } else {
         this.orderQuantity = 'none on order';

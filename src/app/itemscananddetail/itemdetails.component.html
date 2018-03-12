@@ -7,7 +7,7 @@
 <div class="row item-details-breakup">
     <div class="data-container-left pull-left">
         <h4 [ngClass]="stockDisplay">
-            <span class="item-availability"></span> {{stockQuantity}}
+            <span class="item-availability"></span><strong>{{stockQuantity}}</strong>
         </h4>
         <div class="col-sm-6 col-xs-6 data-row-odd column1"><strong>Shop floor</strong></div>
         <div class="col-sm-6 col-xs-6 data-row-odd">{{ article.ShopFloorStock }}</div>
@@ -23,7 +23,7 @@
     <div class="data-container-right pull-right">
 
         <h4 [ngClass]="orderDisplay">
-            <span class="item-availability"></span> {{orderQuantity}}
+            <span class="item-availability"></span><strong>{{orderQuantity}}</strong>
         </h4>
         <div class="col-sm-6 col-xs-6 data-row-odd column1"><strong>In Transit</strong></div>
         <div class="col-sm-6 col-xs-6 data-row-odd">{{ article.StockInTransit }}</div>
