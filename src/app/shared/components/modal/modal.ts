@@ -26,6 +26,7 @@ export class ModalComponent implements OnInit, OnChanges {
     @Input() showCloseButton: boolean;
     @Input() size: string = 'lg';
     @Input() triggerEmitterOnClose: boolean;
+    @Input() marginClass: string = '';
     @Output() modalClose = new EventEmitter<any>();
 
     public isArrayType = false;

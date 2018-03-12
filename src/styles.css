@@ -151,6 +151,10 @@ section {
     margin-bottom: 0!important;
 }
 
+.m-40 {
+    margin: 40px;
+}
+
 header .row {
     width: 100%;
     font-size: 20px;

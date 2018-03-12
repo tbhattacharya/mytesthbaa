@@ -1,5 +1,5 @@
 <div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"
-    [config]="config" (onHidden)="onHidden($event)">
+    [config]="config" (onHidden)="onHidden($event)" [ngClass]="marginClass">
     <div class="modal-dialog modal-{{size}} modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header" [hidden]="!showHeader" [attr.data-hidden]="!showHeader">
