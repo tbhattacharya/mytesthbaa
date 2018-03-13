@@ -4,7 +4,7 @@ export const MOCK = `{
 		"Article": {
 			"Site": "127",
 			"ItemCode": "485569",
-			"ItemDescription": "17L box and Lid",
+			"ItemDescription": "DISC. GERANIUM ZONAL 23CM SQUARE WHITE P",
 			"Barcode": "596869599595",
 			"AvailableStock" : "5",
 			"ShopFloorStock": "6",
