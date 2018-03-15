@@ -7,16 +7,31 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { Constant } from '../constants/constants';
 import { ID_MOCK } from '../../model/identity';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class HttpService {
     public initComplete = new Subject<any>();
+    public baseUrl = 'http://dxau1wmb01:7080/homebase/';
 
     constructor(private http: HttpClient) {
+        switch (environment.envName) {
+            case 'dev':
+                this.baseUrl = 'http://dxau1wmb01:7080/homebase/';
+                break;
+            case 'qa':
+                this.baseUrl = 'http://txau1wmb01:7080/homebase/';
+                break;
+            case 'prod':
+                this.baseUrl = 'http://pxau1wmb01:7080/homebase/';
+                break;
+            default:
+                this.baseUrl = 'http://dxau1wmb01:7080/homebase/';
+        }
     }
 
     public checkEmployeeId(empid: string): Observable<any> {
-        let url: string = 'http://dxau1wmb01:7080/homebase/identity';
+        let url: string = this.baseUrl + 'identity';
         if (Constant.MODE == 0) {
             return this.http.post(url, {
                 'id': empid
@@ -30,7 +45,7 @@ export class HttpService {
     public fetchDataForItem(article: string, site: string): Observable<GeneralEnquiries> {
 
         let params = '?article=' + article + '&site=' + site;
-        let url: string = 'http://dxau1wmb01:7080/homebase/item' + params;
+        let url: string = this.baseUrl + 'item' + params;
         if (Constant.MODE == 0) {
             return this.http.get<GeneralEnquiries>(url);
         } else {
