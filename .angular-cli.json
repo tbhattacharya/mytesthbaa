@@ -12,6 +12,7 @@
         "favicon.ico",
         "favicon.png",
         "manifest.json",
+        "robots.txt",
         "web.config"
       ],
       "index": "index.html",

@@ -1,6 +1,6 @@
 {
   "name": "home-base-app",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -23,7 +23,6 @@
     "@angular/router": "^5.2.0",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
-    "ng-recaptcha": "^3.0.3",
     "ngx-bootstrap": "^2.0.2",
     "ngx-webstorage": "^2.0.0",
     "quagga": "^0.12.1",

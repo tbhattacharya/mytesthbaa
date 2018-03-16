@@ -7,6 +7,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Subscription } from 'rxjs/Subscription';
 import { AjaxConstant } from '../shared/constants/AjaxConstant';
 import { AuthenticationErrorMessageConstant, Message } from '../shared/constants/MessageConstants';
+declare var require: any;
 
 @Component({
   selector: 'app-home',
@@ -24,9 +25,12 @@ export class HomeComponent implements OnInit {
   public ajaxSource$;
   public ajaxSubscription: Subscription;
   public isRequesting: boolean = false;
+  public version: string = '';
 
   constructor(private service: HttpService, private router: Router,
     private formBuilder: FormBuilder, private httpService: HttpService, private zone: NgZone) {
+
+    this.version = require('../../../package.json').version;
     this.ajaxSource$ = this.ajaxSource.asObservable();
     this.ajaxSubscription = this.ajaxSource$.subscribe(event => {
       if (event !== 0) {

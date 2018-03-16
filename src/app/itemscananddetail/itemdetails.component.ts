@@ -70,7 +70,7 @@ export class ItemDetailsComponent implements OnInit, OnChanges {
         this.status = 'Suspended';
         this.statusDisplay = 'suspended';
       } else {
-        this.status = 'Available';
+        this.status = 'Live';
         this.statusDisplay = 'availableInStore';
       }
 
