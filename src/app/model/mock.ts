@@ -1,6 +1,6 @@
 export const MOCK = `{
 	"GeneralEnquiries": {
-		"ReturnCode": "00",
+		"ReturnCode": "04",
 		"Article": {
 			"Site": "127",
 			"ItemCode": "485569",

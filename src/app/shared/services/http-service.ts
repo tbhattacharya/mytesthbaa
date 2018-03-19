@@ -17,7 +17,7 @@ export class HttpService {
     constructor(private http: HttpClient) {
         switch (environment.envName) {
             case 'dev':
-                this.baseUrl = 'http://dxau1wmb01:7080/homebase/';
+                this.baseUrl = 'http://txau1wmb01:7080/homebase/';
                 break;
             case 'qa':
                 this.baseUrl = 'https://huki-ictest.bunnings-ext.azure.haylix.net/homebase/';

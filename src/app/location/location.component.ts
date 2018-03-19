@@ -22,7 +22,6 @@ export class LocationComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(): void {
-    console.log('Locations ', this.location);
     if (this.location) {
       const locString = this.location.LocationCode.toString();
       this.locStringDisplay = locString;

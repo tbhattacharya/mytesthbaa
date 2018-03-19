@@ -43,7 +43,7 @@ export class BarcodeComponent implements OnDestroy, OnChanges {
                 return;
             }
 
-            console.log('Initialization finished. Ready to start');
+            //console.log('Initialization finished. Ready to start');
             Quagga.start();
         });
 
@@ -74,7 +74,7 @@ export class BarcodeComponent implements OnDestroy, OnChanges {
 
 
         Quagga.onDetected((result) => {
-            console.log('Barcode detected and processed : [' + result.codeResult.code + ']', result);
+            //console.log('Barcode detected and processed : [' + result.codeResult.code + ']', result);
             Quagga.stop();
             this.barcodeDetected.emit(result.codeResult.code);
         });
@@ -85,15 +85,12 @@ export class BarcodeComponent implements OnDestroy, OnChanges {
     }
 
     ngOnChanges(): void {
-        console.log('Onchange');
         if (this.state) {
-            console.log('~Start');
             this.startScanner();
         }
     }
 
     public stopCamera(): void {
-        console.log('Stop called');
         Quagga.stop();
     }
 }

@@ -4,6 +4,8 @@ export class ServerError {
     public static ARTICLE_NOT_LISTED: string = '03';
     public static NOT_HOMEBASE: string = '04';
     public static STORE_CLOSED: string = '05';
+    public static ARTICLE_NO_LONGER_LISTED: string = '06';
+    public static HEADER_NOT_SUPPORTED: string = '07';
     public static INVALID_ITEM_NO: string = 'INVALID_ITEM_NO';
     public static INVALID_STORE_NO: string = 'INVALID_STORE_NO';
     public static GENERIC: string = 'GENERIC';

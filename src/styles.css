@@ -101,6 +101,11 @@ h3 {
     display: none;
 }
 
+.alert.alert-danger.warn{
+    border: 1px solid #F7941D!important;
+    color: #F7941D;
+}
+
 .ng-invalid .alert.alert-danger.store-number {
     display: block;
 }
