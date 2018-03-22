@@ -23,7 +23,7 @@ export class HttpService {
                 this.baseUrl = 'https://huki-ictest.bunnings-ext.azure.haylix.net/homebase/';
                 break;
             case 'prod':
-                this.baseUrl = 'https://teams.homebase.co.uk/homebase/';
+                this.baseUrl = 'https://huki-icprod.bunnings-ext.azure.haylix.net/homebase';
                 break;
             default:
                 this.baseUrl = 'http://dxau1wmb01:7080/homebase/';

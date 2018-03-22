@@ -90,6 +90,9 @@ export class ItemscananddetailComponent implements OnInit, AfterViewInit {
       this.handleError(ServerError.INVALID_STORE_NO);
       return;
     }
+    if (this.isRequesting === true) {
+      return;
+    }
     if (this.uiForm.valid && this.fielsHasValue('itemnumber')) {
       this.ajaxSource.next(AjaxConstant.START);
       this.httpService.fetchDataForItem(this.uiForm.controls['itemnumber'].value, this.getFromSessionStorage())
