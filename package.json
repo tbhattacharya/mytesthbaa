@@ -1,6 +1,6 @@
 {
   "name": "home-base-app",
-  "version": "1.0.9",
+  "version": "1.0.11",
   "license": "MIT",
   "scripts": {
     "ng": "ng",

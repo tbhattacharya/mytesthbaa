@@ -182,6 +182,7 @@ export class ItemscananddetailComponent implements OnInit, AfterViewInit {
         break;
       default:
         this.errorMessage = Message.GENERIC;
+        this.checkWarningClass = '';
         isError = true;
     }
     setTimeout(() => {

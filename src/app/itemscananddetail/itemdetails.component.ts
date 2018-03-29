@@ -82,11 +82,7 @@ export class ItemDetailsComponent implements OnInit, OnChanges {
         this.showPromo = false;
         this.priceColor = 'price-perunit-non-promo';
       }
-      let currencyCode = '£';
-      if (this.article.CurrencyCode === Constant.EUR) {
-        currencyCode = '€';
-      }
-      this.price = currencyCode+ ' ' + this.article.CurrentPrice;
+      this.formatPrice();
     }
   }
 
@@ -97,5 +93,19 @@ export class ItemDetailsComponent implements OnInit, OnChanges {
 
   public closeLocation(): void {
     this.location.hide();
+  }
+
+  public formatPrice(): void {
+    let currencyCode = '£';
+    if (this.article.CurrencyCode === Constant.EUR) {
+      currencyCode = '€';
+    }
+    let valueOfArticle = this.article.CurrentPrice;
+    if (Number(valueOfArticle) % 1 !== 0 && !Number.isNaN(Number(valueOfArticle) % 1)) {
+      valueOfArticle = parseFloat(valueOfArticle).toFixed(2);
+      this.price = currencyCode + ' ' + valueOfArticle;
+    } else {
+      this.price = currencyCode + ' ' + this.article.CurrentPrice;
+    }
   }
 }
